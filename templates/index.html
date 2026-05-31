@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScamShield AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <div class="particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <nav>
+            <div class="logo">
+                <i class="fa-solid fa-shield-halved"></i> ScamShield AI
+            </div>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="{{ url_for('history') }}"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
+                <a href="{{ url_for('tips') }}"><i class="fa-solid fa-user-shield"></i> Privacy Tips</a>
+                <span class="nav-user">
+                    <i class="fa-solid fa-circle-user"></i> {{ user }}
+                </span>
+                <a href="{{ url_for('logout') }}" class="nav-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-text">
+                <div class="status-bar">
+                    <span class="dot"></span> AI Protection Active
+                </div>
+                <h1>AI Scam & Privacy Protection Assistant</h1>
+                <p>Detect phishing links, scam messages, fake social media content and suspicious emails instantly using AI.</p>
+                <div class="hero-buttons">
+                    <button class="hero-btn"><i class="fa-solid fa-bolt"></i> AI Powered</button>
+                    <button class="hero-btn secondary-btn"><i class="fa-solid fa-shield-virus"></i> Threat Protection</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="stats-grid">
+            <div class="stat-card"><h2>12K+</h2><p>Threats Blocked</p></div>
+            <div class="stat-card"><h2>98%</h2><p>Detection Accuracy</p></div>
+            <div class="stat-card"><h2>24/7</h2><p>AI Monitoring</p></div>
+        </section>
+
+        <!-- INPUT -->
+        <section class="input-section">
+            <div class="input-card-wrapper">
+                <i class="fa-solid fa-shield-halved card-shield"></i>
+                <div class="input-card">
+                    <h2><i class="fa-solid fa-magnifying-glass"></i> Analyze Suspicious Content</h2>
+                    <textarea placeholder="Paste suspicious message or email here..."></textarea>
+                    <input type="text" placeholder="Paste suspicious URL here...">
+                    <div class="scan-bar"></div>
+                    <button class="analyze-btn">
+                        <i class="fa-solid fa-shield-virus"></i> Analyze Threat
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTS -->
+        <section class="results">
+            <div class="card">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Risk Score</h3>
+                <div class="risk-circle"><span id="risk-score">AI</span></div>
+                <p id="risk-status">Waiting for Analysis</p>
+                <p id="scam-type" style="color:#94a3b8;margin-top:8px;font-size:.9rem;"></p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-bug"></i> Threat Indicators</h3>
+                <ul id="threat-list"><li>Submit a message or URL for AI analysis.</li></ul>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-lightbulb"></i> AI Suggestions</h3>
+                <ul id="suggestion-list"><li>AI recommendations will appear here.</li></ul>
+            </div>
+        </section>
+
+        <!-- LIVE FEED -->
+        <section class="live-feed">
+            <div class="card">
+                <h3><i class="fa-solid fa-satellite-dish"></i> Live Threat Feed</h3>
+                <div class="feed-item">⚠️ Fake Banking Login Attempt</div>
+                <div class="feed-item">⚠️ Crypto Scam URL Detected</div>
+                <div class="feed-item">⚠️ Instagram Giveaway Scam</div>
+                <div class="feed-item">⚠️ OTP Phishing Attempt</div>
+            </div>
+        </section>
+
+        <footer><p>Built for Hackathon • ScamShield AI Security System</p></footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

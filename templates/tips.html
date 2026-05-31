@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Tips – ScamShield AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <div class="particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <nav>
+            <div class="logo">
+                <i class="fa-solid fa-shield-halved"></i> ScamShield AI
+            </div>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="{{ url_for('history') }}"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
+                <a href="{{ url_for('tips') }}"><i class="fa-solid fa-user-shield"></i> Privacy Tips</a>
+                <span class="nav-user">
+                    <i class="fa-solid fa-circle-user"></i> {{ user }}
+                </span>
+                <a href="{{ url_for('logout') }}" class="nav-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            </div>
+        </nav>
+
+        <!-- PAGE -->
+        <section class="simple-page">
+            <h1>AI Privacy & Security Tips</h1>
+            <p class="history-subtitle">Stay protected from modern online scams</p>
+
+            <div class="history-grid">
+                <div class="card history-item">
+                    <h3><i class="fa-solid fa-key"></i> Use Strong Passwords</h3>
+                    <p>Create passwords using symbols, numbers and uppercase letters. Use a password manager to keep track of them.</p>
+                </div>
+                <div class="card history-item">
+                    <h3><i class="fa-solid fa-lock"></i> Enable 2FA</h3>
+                    <p>Turn on Two-Factor Authentication for all important accounts. It stops 99% of automated attacks.</p>
+                </div>
+                <div class="card history-item">
+                    <h3><i class="fa-solid fa-link-slash"></i> Avoid Suspicious Links</h3>
+                    <p>Never click unknown shortened URLs or suspicious messages. Hover over links to preview the real destination.</p>
+                </div>
+                <div class="card history-item">
+                    <h3><i class="fa-solid fa-envelope-circle-check"></i> Verify Emails</h3>
+                    <p>Check sender email carefully before opening attachments. Scammers often use emails like support@amaz0n.com.</p>
+                </div>
+                <div class="card history-item">
+                    <h3><i class="fa-solid fa-user-secret"></i> Protect Personal Data</h3>
+                    <p>Never share OTPs, passwords, or banking credentials. No legitimate company will ever ask for your OTP.</p>
+                </div>
+                <div class="card history-item">
+                    <h3><i class="fa-solid fa-cloud-arrow-down"></i> Update Software</h3>
+                    <p>Keep apps and browsers updated for maximum protection. Most attacks exploit outdated, unpatched software.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer><p>Built for Hackathon • ScamShield AI Security System</p></footer>
+    </div>
+</body>
+</html>

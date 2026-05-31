@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan History – ScamShield AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <div class="particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <nav>
+            <div class="logo">
+                <i class="fa-solid fa-shield-halved"></i> ScamShield AI
+            </div>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="{{ url_for('history') }}"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
+                <a href="{{ url_for('tips') }}"><i class="fa-solid fa-user-shield"></i> Privacy Tips</a>
+                <span class="nav-user">
+                    <i class="fa-solid fa-circle-user"></i> {{ user }}
+                </span>
+                <a href="{{ url_for('logout') }}" class="nav-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            </div>
+        </nav>
+
+        <!-- PAGE -->
+        <section class="simple-page">
+            <h1>Your Recent Scans</h1>
+            <p class="history-subtitle">Only visible to your account • Privacy Protected</p>
+
+            <div class="history-grid">
+
+                {% if history %}
+                    {% for item in history %}
+                    <div class="card history-item">
+                        <div class="history-top">
+                            <h3>
+                                {% if item.risk == "High" %}
+                                    <i class="fa-solid fa-triangle-exclamation" style="color:#ff4d6d"></i>
+                                {% elif item.risk == "Medium" %}
+                                    <i class="fa-solid fa-circle-exclamation" style="color:#facc15"></i>
+                                {% else %}
+                                    <i class="fa-solid fa-circle-check" style="color:#22c55e"></i>
+                                {% endif %}
+                                {{ item.scam_type }}
+                            </h3>
+                            <span class="
+                                {% if item.risk == 'High' %}high-risk
+                                {% elif item.risk == 'Medium' %}medium-risk
+                                {% else %}low-risk{% endif %}
+                            ">
+                                {{ item.risk }} Risk
+                            </span>
+                        </div>
+                        <p style="color:#94a3b8;font-size:.95rem;margin-bottom:8px;">
+                            "{{ item.message }}"
+                        </p>
+                        <p>Risk Score: <strong style="color:#00f5ff">{{ item.score }}%</strong></p>
+                        <p class="history-time">
+                            <i class="fa-solid fa-clock"></i> {{ item.time }}
+                        </p>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="card history-item" style="grid-column:1/-1;text-align:center;padding:60px;">
+                        <i class="fa-solid fa-shield-halved" style="font-size:4rem;color:#00f5ff;margin-bottom:20px;display:block;"></i>
+                        <h3 style="margin-bottom:10px;">No Scans Yet</h3>
+                        <p style="color:#94a3b8;">Go to Home and analyze a suspicious message to see your history here.</p>
+                    </div>
+                {% endif %}
+
+            </div>
+        </section>
+
+        <footer><p>Built for Hackathon • ScamShield AI Security System</p></footer>
+    </div>
+</body>
+</html>
